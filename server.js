@@ -29,9 +29,10 @@ corsProxy.createServer({
         'x-heroku-dynos-in-use',
         'x-request-start',
     ],
-    redirectSameOrigin: false,
+    redirectSameOrigin: true,
     httpProxyOptions: {
         // Do not add X-Forwarded-For, etc. headers, because Heroku already adds it.
+        changeOrigin:true,
         xfwd: false,
     },
     spoofOrigin: true
