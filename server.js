@@ -17,7 +17,7 @@ debug('Whitelisting origins: ' + originWhitelist);
 const checkRateLimit = require('./lib/rate-limit')(process.env.CORSESCAPE_RATELIMIT);
 
 const corsProxy = require('./lib/cors-escape');
-corsProxy.createServer({
+corsProxy.createServer({  
     originBlacklist,
     originWhitelist,
     requireHeaders: ['origin'],
@@ -32,7 +32,6 @@ corsProxy.createServer({
     redirectSameOrigin: true,
     httpProxyOptions: {
         // Do not add X-Forwarded-For, etc. headers, because Heroku already adds it.
-        changeOrigin:true,
         xfwd: false,
     },
     spoofOrigin: true
